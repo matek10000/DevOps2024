@@ -1,11 +1,10 @@
-# Użyj obrazu Nginx jako bazowego
+# Obraz
 FROM nginx:alpine
 
-# Skopiuj pliki projektu do katalogu, w którym Nginx szuka plików statycznych
 COPY ./ /usr/share/nginx/html
 
-# Otwórz port 80
+#OTWARCIE PORTU
 EXPOSE 80
 
-# Uruchom Nginx
+#WLACZENIE OBRAZU
 CMD ["nginx", "-g", "daemon off;"]
