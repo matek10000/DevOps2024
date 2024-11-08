@@ -26,7 +26,7 @@ db.connect(err => {
 
 // odbieranie danych
 app.get('/data', (req, res) => {
-  db.query('SELECT * FROM messages', (err, results) => {
+  db.query('SELECT * FROM wiadomosci', (err, results) => {
     if (err) {
       console.error('blad zapytania:', err);
       res.status(500).send('Blad bazy danych');
@@ -43,7 +43,7 @@ app.post('/data', (req, res) => {
     return res.status(400).send('Brak wiadomosci do wyswietlenia');
   }
 
-  db.query('INSERT INTO messages (message) VALUES (?)', [message], (err, result) => {
+  db.query('INSERT INTO wiadomosci (content) VALUES (?)', [message], (err, result) => {
     if (err) {
       console.error('Blad zapytania do bazy danych:', err);
       res.status(500).send('Blad bazy danych');
