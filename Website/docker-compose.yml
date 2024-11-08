@@ -7,16 +7,20 @@ services:
       - "80:80"
     networks:
       - webnet
+    depends_on:
+      - db  # kontener web uruchomi się po db
 
   db:
     image: mysql:5.7
     environment:
-      MYSQL_ROOT_PASSWORD: admin
+      MYSQL_ROOT_PASSWORD: rootpassword
       MYSQL_DATABASE: index_db
-      MYSQL_USER: admin
-      MYSQL_PASSWORD: admin
+      MYSQL_USER: user
+      MYSQL_PASSWORD: userpassword
     volumes:
       - db-data:/var/lib/mysql
+    ports:
+      - "3306:3306"
     networks:
       - webnet
 
@@ -26,4 +30,4 @@ networks:
 
 volumes:
   db-data:
-    driver: local
+
