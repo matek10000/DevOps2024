@@ -3,6 +3,7 @@ version: '3.8'
 services:
   web:
     build: .
+    container_name: db
     ports:
       - "80:80"
     networks:
@@ -13,10 +14,10 @@ services:
   db:
     image: mysql:5.7
     environment:
-      MYSQL_ROOT_PASSWORD: rootpassword
+      MYSQL_ROOT_PASSWORD: admin
       MYSQL_DATABASE: index_db
-      MYSQL_USER: user
-      MYSQL_PASSWORD: userpassword
+      MYSQL_USER: root
+      MYSQL_PASSWORD: admin
     volumes:
       - db-data:/var/lib/mysql
     ports:

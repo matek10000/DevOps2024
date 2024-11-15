@@ -11,8 +11,8 @@ app.use(express.json());
 // polaczenie z baza
 const db = mysql.createConnection({
   host: 'db',
-  user: 'user',
-  password: 'userpassword',
+  user: 'root',
+  password: 'admin',
   database: 'index_db'
 });
 
