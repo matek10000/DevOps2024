@@ -10,7 +10,7 @@ naglowek.addEventListener('mouseleave', () => {
 });
 
 // Pobranie danych z backendu i wyświetlenie ich w tabeli
-fetch('http://localhost:3000/data') // Pobieramy dane z backendu
+fetch('http://localhost:3306/data') // Pobieramy dane z backendu
   .then(response => response.json()) // Parsowanie odpowiedzi jako JSON
   .then(data => {
     // Czyszczenie tabeli przed dodaniem nowych danych
